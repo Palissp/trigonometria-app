@@ -1,0 +1,123 @@
+<div class="flex w-full h-full">
+  <div [ngSwitch]="selectedFigura">
+    <div *ngSwitchCase="'cuadrado'">
+      <img src="https://educaimagenes.com/wp-content/uploads/2020/09/1-3.png" width="700" height="auto">
+      <div class="flex justify-around" *ngIf="!isPerimetro && !isArea">
+        <a class="btn-0 cursor-pointer" (click)="isArea = true">&Aacute;rea</a>
+        <a class="btn-0 cursor-pointer" (click)="isPerimetro = true">Per&iacute;metro</a>
+      </div>
+      <div class="flex justify-start align-baseline items-baseline self-baseline pt-5" *ngIf="isArea">
+        <input type="number" [(ngModel)]="base" placeholder="Base" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="material-icons text-7xl">close</span>
+        <input type="number" [(ngModel)]="altura" placeholder="Altura"
+               style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="text-8xl cursor-pointer" (click)="calcularAreaCuadrado(base, altura)">=</span>
+        <span class="text-8xl">{{resultado}}</span>
+      </div>
+      <div class="flex justify-start align-baseline items-baseline self-baseline pt-5" *ngIf="isPerimetro">
+        <input type="number" [(ngModel)]="lado1" placeholder="Lado" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="material-icons text-7xl">add</span>
+        <input type="number" [(ngModel)]="lado2" placeholder="Lado" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="material-icons text-7xl">add</span>
+        <input type="number" [(ngModel)]="lado3" placeholder="Lado" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="material-icons text-7xl">add</span>
+        <input type="number" [(ngModel)]="lado4" placeholder="Lado" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="text-8xl cursor-pointer" (click)="calcularPerimetroCuadrados(lado1, lado2, lado3, lado4)">=</span>
+        <span class="text-8xl">{{resultado}}</span>
+      </div>
+    </div>
+    <div *ngSwitchCase="'triangulo'" class="flex flex-col">
+      <img src="https://i.pinimg.com/originals/ef/5b/e2/ef5be2529e8d456c35f518a407cc1bed.jpg" width="600" height="auto">
+      <div class="flex justify-around" *ngIf="!isPerimetro && !isArea">
+        <a class="btn-0 cursor-pointer" (click)="isArea = true">&Aacute;rea</a>
+        <a class="btn-0 cursor-pointer" (click)="isPerimetro = true">Per&iacute;metro</a>
+      </div>
+      <div *ngIf="isArea">
+        <div class="flex align-baseline pt-5">
+          <input type="number" [(ngModel)]="base" placeholder="Base"
+                 style="width: 100px; height: 50px; font-size:2rem;">
+          <span class="material-icons text-4xl">close</span>
+          <input type="number" [(ngModel)]="altura" placeholder="Altura"
+                 style="width: 100px; height: 50px; font-size:2rem;">
+          <span class="text-8xl cursor-pointer" (click)="calcularAreaTriangulo(base,altura)">=</span>
+          <span class="flex justify-center w-full text-8xl">{{resultado}}</span>
+        </div>
+        <hr style="color: black; width: 300px">
+        <span style="margin-left: 90px" class="text-8xl self-center">2</span>
+      </div>
+      <div class="flex justify-start align-baseline items-baseline self-baseline pt-5" *ngIf="isPerimetro">
+        <input type="number" [(ngModel)]="lado1" placeholder="Lado" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="material-icons text-7xl">add</span>
+        <input type="number" [(ngModel)]="lado2" placeholder="Lado" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="material-icons text-7xl">add</span>
+        <input type="number" [(ngModel)]="lado3" placeholder="Lado" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="text-8xl cursor-pointer" (click)="calcularPerimetroTriangulo(lado1, lado2, lado3)">=</span>
+        <span class="text-8xl">{{resultado}}</span>
+      </div>
+    </div>
+    <div *ngSwitchCase="'circulo'" class="w-full flex flex-col">
+      <img src="https://www.proferecursos.com/wp-content/uploads/Circulo-para-nin%CC%83os.jpg" width="400"
+           height="auto">
+      <div class="flex justify-around" *ngIf="!isPerimetro && !isArea">
+        <a class="btn-0 cursor-pointer" (click)="isArea = true">&Aacute;rea</a>
+        <a class="btn-0 cursor-pointer" (click)="isPerimetro = true">Per&iacute;metro</a>
+      </div>
+      <div *ngIf="isArea">
+        <div class="flex justify-items-center pt-5">
+          <input type="number" [(ngModel)]="radio" placeholder="Radio"
+                 style="width: 200px; height: 50px; font-size:2rem; margin-top: 30px">
+          <span class="text-8xl cursor-pointer" (click)="calcularAreaCirculo(radio)">=</span>
+        </div>
+        <span class="flex justify-center w-full text-4xl flex-wrap">{{resultado}}</span>
+      </div>
+      <div class="flex align-middle pt-5" *ngIf="isPerimetro">
+        <div class="flex justify-center pt-5">
+          <input type="number" [(ngModel)]="radio" placeholder="Radio"
+                 style="width: 200px; height: 50px; font-size:2rem; margin-top: 30px">
+
+          <span class="text-8xl cursor-pointer" (click)="calcularPerimetroCirculo(radio)">=</span>
+        </div>
+        <span class="flex justify-center w-full text-4xl flex-wrap">{{resultado}}</span>
+      </div>
+    </div>
+    <div *ngSwitchCase="'rectangulo'" class="flex flex-col justify-center">
+      <img src="https://www.orientacionandujar.es/wp-content/uploads/2015/10/RECTANGULO-CARA-COLOR.jpg" width="600"
+           height="auto">
+      <div class="flex justify-around" *ngIf="!isPerimetro && !isArea">
+        <a class="btn-0 cursor-pointer" (click)="isArea = true">&Aacute;rea</a>
+        <a class="btn-0 cursor-pointer" (click)="isPerimetro = true">Per&iacute;metro</a>
+      </div>
+      <div class="flex justify-items-center pt-5" *ngIf="isArea">
+        <input type="number" [(ngModel)]="base" placeholder="Base"
+               style="width: 150px; height: 50px; font-size:2rem;">
+        <span class="material-icons text-7xl">close</span>
+        <input type="number" [(ngModel)]="altura" placeholder="Altura"
+               style="width: 150px; height: 50px; font-size:2rem;">
+        <span class="text-8xl cursor-pointer" (click)="calcularAreaRectangulo(base,altura)">=</span>
+        <span class="flex justify-center w-full text-6xl">{{resultado}}</span>
+      </div>
+      <div class="flex align-middle pt-5" *ngIf="isPerimetro">
+        <span class="text-4xl mr-4">2 *</span>
+        <input type="number" [(ngModel)]="base" placeholder="Base" style="width: 100px; height: 50px; font-size:2rem;">
+        <span class="material-icons text-7xl">add</span>
+        <span class="text-4xl mr-4">2 *</span>
+        <input type="number" [(ngModel)]="altura" placeholder="Altura" style="width: 200px; height: 50px; font-size:2rem;">
+        <span class="text-8xl cursor-pointer" (click)="calcularPerimetroRectangulo(base, altura)">=</span>
+        <span class="text-8xl">{{resultado}}</span>
+      </div>
+    </div>
+  </div>
+  <div id="historial"
+       class="ml-32 flex flex-col historial justify-start border bg-blue-900 border-cyan-900 max-w-2xl	">
+    <ul>
+      <span class="text-8xl">Historial</span>
+      <span class="material-icons text-6xl cursor-pointer" (click)="saveHistory()">save</span>
+      <hr>
+      <li *ngFor="let figura of historial">
+        <div class="historial-datos flex justify-center mt-4">
+          <p class="text-3xl">{{figura}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

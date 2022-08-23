@@ -1,0 +1,122 @@
+$dark-rust: #bf4612;
+
+/*Card variables*/
+$card-min-width: 19.25rem;
+$card-max-width: 19.25rem;
+$card-min-height: 11.5rem;
+$card-max-height: 11.5rem;
+$card-font-size: 1em;
+$card-border-radius: 0.5rem;
+
+/* Shadow to simulate border width increase */
+$shadow-border: 0 0 0 1px;
+
+.familiarisation-view {
+  .bread-crumb {
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 4%;
+    .home-link {
+      color: $dark-rust;
+      text-decoration: underline;
+    }
+
+    .current-page {
+      font-size: 1em;
+      color: #3c3c3b;
+
+      .chev-icon {
+        font-size: 0.8em;
+        color: #8c8c8c;
+      }
+    }
+  }
+
+  .page-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-left: 4%;
+  }
+
+  .help-text {
+    font-size: 1.1em;
+    font-weight: normal;
+    margin-left: 4%;
+  }
+
+  .practice-cards {
+    &-2inrow {
+      .row {
+        max-width: 41.625rem;
+      }
+    }
+
+    &-3inrow {
+      .row {
+        max-width: 61.25rem;
+      }
+    }
+
+    .card {
+      margin-top: 1rem;
+      margin-left: 1.1rem;
+    }
+
+    .practice-card {
+      &-selectable {
+        min-width: $card-min-width;
+        max-width: $card-max-width;
+        min-height: $card-min-height;
+        max-height: $card-max-height;
+        box-shadow: 0 3.6px 6.6px rgba(0, 0, 0, 0.4),
+        0 2.8px 6.4px rgba(0, 0, 0, 0.22);
+        font-size: $card-font-size;
+        border-radius: $card-border-radius;
+        border-color: #ef8354;
+        cursor: pointer;
+        text-align: center;
+        border-width: 3px;
+
+        &:hover {
+          border-width: 5px;
+          border-color: $dark-rust;
+        }
+
+        &:active {
+          border-width: 4px;
+          border-color: $dark-rust;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        &.selected {
+          border-width: 4px;
+          border-color: $dark-rust;
+          box-shadow: 0 3.3px 6px rgba(0, 0, 0, 0.7),
+          0 2.8px 6px rgba(0, 0, 0, 0.7);
+        }
+      }
+
+      &-content {
+        min-width: 50%;
+        max-width: 80%;
+        margin: auto;
+        padding-top: 5%;
+      }
+
+      &-icon {
+      }
+
+      &-text {
+        padding-top: 5%;
+        color: $dark-rust;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.title{
+  color: black;
+}

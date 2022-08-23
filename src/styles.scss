@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Silkscreen', cursive;
+}
+
+:root {
+  --primary-color: #2200f3;
+  --secondary-color: #3FA796;
+  --tertiary-color: #FEC260;
+  --quaternary-color: #A10035;
+}
+
+
+body {
+  background-image: url("https://fondosmil.com/fondo/18823.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
